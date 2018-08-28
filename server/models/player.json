@@ -1,0 +1,56 @@
+{
+  "name": "Player",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullname": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    },
+    "gender": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "search": {
+      "accepts": [
+        {
+          "arg": "artist",
+          "type": "string",
+          "required": true,
+          "description": "User submits the kind of user to listen to his track",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "artist",
+          "type": "object",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "A search to the backend for music",
+      "http": [
+        {
+          "path": "/search",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
